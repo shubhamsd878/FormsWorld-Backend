@@ -11,7 +11,7 @@ router.post('/',
     body('password').isLength({min: 5}),
     body('phone_no').isLength({min: 10})
 ], 
-(req, res) => {
+async (req, res) => {
     console.log('req.body: ' + req.body.name)
     console.log('req.body: ' + req.body.email)
     console.log('req.body: ' + req.body.password)
@@ -34,7 +34,7 @@ router.post('/',
         console.log('newUser successfully created !')
         console.log("newuser: " + newUser)
 
-        newUser.save().then(()=> console.log('newUser saved successfully'))
+        await newUser.save().then(()=> console.log('newUser saved successfully'))
 
         res.status(200).json({status: '200', message: 'User created Successfully'});
         

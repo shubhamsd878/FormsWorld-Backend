@@ -40,7 +40,7 @@ async (req, res) => {
             return res.status(404).json(({ message: "Invalid Password"}))
         }
 
-        const data = { email: req.body.email, password: req.body.password}
+        const data = {uid: userData._id, email: req.body.email, password: req.body.password}
 
         console.log("process.env.JWT_SECRE: " + process.env.JWT_SECRE)
         const authtoken = jwt.sign(data, JWT_SECRET)
@@ -48,26 +48,6 @@ async (req, res) => {
 
         return res.status(200).json({status: 200,message:'successsss', token: authtoken, uid: userData._id})
 
-        
-            // User.findOne({email: req.body.email}, function(err, resp){
-        //     console.log('--------------------- find result ---------------------')
-        //     console.log(resp)
-        //     console.log(resp.email + " ; " + resp.password)
-
-        //     if( !resp.email ){
-        //         return res.status(404).json({message:"Invalid email"})
-        //     }
-        //     else if(resp.password != req.body.password){
-        //         return res.status(404).json(({ message: "Invalid Password"}))
-        //     }
-
-        //     const data = { email: req.body.email}
-        //     return res.status(200).json({status: 200,message:'successsss'})
-        // })
-        
-    // } catch (e) {
-    //     console.log(e.message)
-    // }
 })
 
 module.exports = router

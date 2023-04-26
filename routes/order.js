@@ -5,7 +5,7 @@ const order = require('../models/orders')
 // ----------------- route for fetching orders -----------------------
 router.get('/', async(req, res)=> {
     let result = await order.find()
-        // .populate('form_id uid')
+        .populate('form_id uid')
         .catch(err => res.status(500).json({message:false, err }))
 
     res.status(200).json({message:true, result})

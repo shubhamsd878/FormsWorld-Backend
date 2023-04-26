@@ -11,15 +11,14 @@ const userSchema = Schema({
         unique: true,
         minLength: 10,
     },
-    password: {
-        type: String,
-        minLength: 5
-    },
     phone_no: {
         type: Number,
         minLength: 10
+    },
+    password: {
+        type: String,
+        minLength: 5
     }
-
 });
 
 module.exports = mongoose.model('users', userSchema)

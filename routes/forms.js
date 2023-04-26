@@ -14,7 +14,9 @@ router.post('/', (req, res) => {
             title: req.body.title,
             last_date: new Date(req.body.date),
             total_post: req.body.total_post,
-            description: req.body.description
+            age: req.body.age,
+            qualification: req.body.qualification,
+            price: req.body.price
         })
 
         newForm.save((err, f) => {
@@ -42,7 +44,16 @@ router.get('/', async (req, res) => {
     //     }
     // })
     const results = await form.find({})
-    res.json({message:"successful", results})
+    res.status(200).json({message:"successful", results})
+})
+
+router.get('/_id', (req, res)=> {
+    const fid = req.headers.fid
+    if( !fid ) return res.status(400).json({message:'no form id'})
+
+    form.findById(fid, (err, result) => {
+        res.status(200).json({message:'form fetch successful', result})
+    })
 })
 
 router.delete('/', (req,res)=> {

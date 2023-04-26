@@ -5,10 +5,10 @@ const formSchema = Schema({
     title: String,
     last_date: Date,
     total_post: Number,
-    description: String, // --> no need delete 
-    age: Number,
+    age: String,
     qualification: String,
     price: Number
+    // + date
 
 })
 
