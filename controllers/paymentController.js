@@ -42,7 +42,7 @@ const paymentVerification = async (req, res) => {
   try {
 
 
-    const { razorpay_order_id, razorpay_payment_id, razorpay_signature } =
+    const { amount, razorpay_order_id, razorpay_payment_id, razorpay_signature } =
       req.body;
 
     const body = razorpay_order_id + "|" + razorpay_payment_id;
@@ -57,15 +57,15 @@ const paymentVerification = async (req, res) => {
     if (isAuthentic) {
       // Database comes here
 
-      await Payment.create({
+      const data = await Payment.create({
+        amount,
         razorpay_order_id,
         razorpay_payment_id,
         razorpay_signature,
       });
 
-      res.redirect(
-        `http://localhost:3000/paymentsuccess?reference=${razorpay_payment_id}`
-      );
+      console.log(data)
+      res.status(200).json({status:200, message:'payment successfully stored to db', data})
     } else {
       res.status(400).json({
         success: false,

@@ -18,6 +18,10 @@ const orderSchema = mongoose.Schema({
     payment_done:{
         type: Boolean,
         default: false
+    },
+    payment_id: {
+        type: mongoose.Types.ObjectId,
+        ref:'Payment'
     }
 
 })

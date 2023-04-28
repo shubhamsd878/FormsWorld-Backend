@@ -12,17 +12,18 @@ router.get('/', async(req, res)=> {
 })
 
 
-// ----------------- route for adding posts --------------------------
+// ----------------- route for adding orders --------------------------
 router.post('/', (req, res)=> {
-    const {form_id, uid, payment_done} = req.body
+    const {form_id, uid, payment_done, payment_id} = req.body
 
-    dateTime = Date.now()
+    // dateTime = new Date.now()
 
     let newOrder = new order({
         form_id,
         uid, 
-        dateTime, 
-        payment_done
+        payment_done,
+        payment_id: payment_id
+        // dateTime, using default in model
     })
 
     newOrder.save((err, resp) => {

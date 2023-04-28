@@ -15,11 +15,11 @@ const paymentSchema = new mongoose.Schema({
   // },
 
   // ----- new -----
-  order_id: {
-    type: mongoose.Types.ObjectId,
-    ref: 'orders',
-    required: true,
-  },
+  // order_id: {
+  //   type: mongoose.Types.ObjectId,
+  //   ref: 'orders',
+  //   // required: true,
+  // },
   amount: {
     type: Number,
     required: true,
