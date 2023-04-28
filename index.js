@@ -27,6 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/signup', require('./routes/signup'))
 app.use('/login', require('./routes/login'))
+app.use('/updatePassword', require('./routes/updatePassword'))
 app.use('/kyc', require('./routes/kyc'))
 app.use('/admin', require('./routes/admin'))
 app.use('/forms', require('./routes/forms'))
