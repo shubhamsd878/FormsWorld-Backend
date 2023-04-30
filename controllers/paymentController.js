@@ -64,7 +64,7 @@ const paymentVerification = async (req, res) => {
         razorpay_signature,
       });
 
-      console.log(data)
+      // console.log(data)
       res.status(200).json({status:200, message:'payment successfully stored to db', data})
     } else {
       res.status(400).json({

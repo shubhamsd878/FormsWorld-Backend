@@ -21,9 +21,9 @@ router.post('/', (req, res) => {
 
         newForm.save((err, f) => {
             if (err)
-                res.json({ message: 'something went wrong, error is \n: ', err })
+                res.json({ status: 400,  message: 'something went wrong, err is : ', err })
             else
-                res.json({ message: 'form succesfully saved, \n', f })
+                res.json({ status: 200, message: 'Success! Form added Successfully', f })
         })
 
 
@@ -75,9 +75,9 @@ router.put('/', (req, res)=>{
 
     form.findByIdAndUpdate(req.body.id, updateForm, (err, response)=> {
         if(err) 
-            res.json({message:'error is: ', err})
+            res.json({status: 500, message:'error is: ', err})
         else
-            res.json({message: 'updated successfully', response})
+            res.json({status:200, message: 'updated successfully', response})
     })
 })
 

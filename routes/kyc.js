@@ -102,11 +102,11 @@ router.post('/', (req, res) => {
             kycSchema.findByIdAndUpdate( uid, kyc,{upsert:true},  function(err, Person){
                 if(err){
                     console.log('database error: ' + err)
-                    return res.status(501).json({message: "Database error", err});
+                    return res.status(501).json({status: 500, message: "Database error", err});
                 }
                 else{
                     console.log('saved successfully')
-                    return res.status(200).json({message: " Successfully uploaded", type: "Success"});
+                    return res.status(200).json({status: 200,message: " Successfully uploaded", type: "Success"});
                 }
              });
 

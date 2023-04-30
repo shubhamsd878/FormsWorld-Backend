@@ -34,10 +34,10 @@ async (req, res) => {
         const userData = await User.findOne({email: req.body.email})
 
         if( !userData ){
-            return res.status(404).json({message:"Invalid email"})
+            return res.status(404).json({status:404, message:"Invalid email"})
         }
         else if(userData.password != req.body.password){
-            return res.status(404).json(({ message: "Invalid Password"}))
+            return res.status(404).json(({ status:404, message: "Invalid Password"}))
         }
 
         const data = {uid: userData._id, email: req.body.email, password: req.body.password}

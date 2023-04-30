@@ -8,7 +8,7 @@ const kycSchema = Schema({
     // .... phone_no +  email remaining
     fathers_name: String,
     mothers_name: String,
-    family_id: Number,
+    family_id: String,
     // images
     passport_image: String,
     signature_image: String,

@@ -19,7 +19,7 @@ async (req, res) => {
     console.log('validationResult error : ' + validationResult)
     if(!error.isEmpty()){
         console.log(' array of error: ' + error.array())
-        return res.status(404).json({message: 'enter valid credentials', 'error: ': error.array()})
+        return res.status(404).json({status: 404, message: 'enter valid credentials', 'error: ': error.array()})
     }
 
     try {
@@ -36,7 +36,7 @@ async (req, res) => {
 
         await newUser.save().then(()=> console.log('newUser saved successfully'))
 
-        res.status(200).json({status: '200', message: 'User created Successfully'});
+        res.status(200).json({status: 200, message: 'Signup Successful'});
         
     } catch (e) {
         console.log(e.message)
