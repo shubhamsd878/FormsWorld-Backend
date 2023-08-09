@@ -70,7 +70,9 @@ router.put('/', (req, res)=>{
         title: req.body.title,
         last_date: new Date(req.body.date),
         total_post: req.body.total_post,
-        description: req.body.description
+        age: req.body.age,
+        qualification: req.body.qualification,
+        price: req.body.price
     }
 
     form.findByIdAndUpdate(req.body.id, updateForm, (err, response)=> {

@@ -8,10 +8,11 @@ var bodyParser = require('body-parser')
 const app = express()
 const port = 3001
 
-connectMongo()
-
 const dotenv = require('dotenv');
 dotenv.config()
+
+connectMongo()
+
 
 app.use(cors())
 
